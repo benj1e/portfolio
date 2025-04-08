@@ -6,7 +6,7 @@ const Navbar = () => {
             <ul className="flex gap-4 items-center py-8 text-gray-400">
                 <li className="uppercase font-fira-code text-3xl font-bold">
                     <a href="/" className="hover:text-gray-200">Benji</a>
-                </li>
+                </li>   
             </ul>
             <ul className="flex gap-4 items-center py-8 justify-between text-gray-400 text-xl">
                 <li>
