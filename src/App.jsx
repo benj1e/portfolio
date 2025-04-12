@@ -23,11 +23,6 @@ function App() {
 
     return (
         <>
-            <Particles
-                id="tsparticles"
-                particlesLoaded={particlesLoaded}
-                options={particlesConfig}
-            />
             <Home />
         </>
     );
