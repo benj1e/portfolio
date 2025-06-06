@@ -1,8 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
 @import "tailwindcss";
 
-
 @theme {
     --font-fira-code: "Fira Code", monospace;
+    --font-header: "font-header", sans-serif;
+    --font-links-heavy: "font-links-heavy";
+    --font-links-light: "font-links-light";
+    --font-main: "font-main", sans-serif;
+    --font-special: "font-special";
 }
 
+@font-face {
+    font-family: "font-header";
+    src: url("./assets/fonts/eafc-pack/Rifton-Norm.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "font-links-heavy";
+    src: url("./assets/fonts/eafc-pack/CruyffSansExpanded-Heavy.e64b4629.otf")
+        format("truetype");
+}
+
+@font-face {
+    font-family: "font-links-light";
+    src: url("./assets/fonts/eafc-pack/CruyffSans-Light.443e7d8e.otf")
+        format("truetype");
+}
+
+@font-face {
+    font-family: "font-main";
+    src: url("./assets/fonts/eafc-pack/CruyffSans-Bold.ecd5078c.otf")
+        format("opentype");
+}
+
+@font-face {
+    font-family: "font-special";
+    src: url("./assets/fonts/eafc-pack/DINPRO-BOLDITALIC.OTF")
+        format("opentype");
+}
+
+@keyframes roll {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-roll {
+    animation: roll 2s linear infinite;
+}
