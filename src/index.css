@@ -8,6 +8,7 @@
     --font-links-light: "font-links-light";
     --font-main: "font-main", sans-serif;
     --font-special: "font-special";
+    --font-mono2: "font-mono2" !important;
 }
 
 @font-face {
@@ -41,6 +42,12 @@
         format("opentype");
 }
 
+@font-face {
+    font-family: "font-mono2";
+    src: url("./assets/fonts/eafc-pack/CruyffSansMono-Medium.fae35357.otf")
+        format("opentype");
+}
+
 @keyframes roll {
     0% {
         transform: rotate(0deg);
@@ -53,3 +60,4 @@
 .animate-roll {
     animation: roll 2s linear infinite;
 }
+

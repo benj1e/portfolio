@@ -1,0 +1,68 @@
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes glow-pulse {
+    0%,
+    100% {
+        filter: drop-shadow(0 0 4px rgba(196, 181, 253, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 12px rgba(196, 181, 253, 0.8));
+    }
+}
+
+.cursor-blink {
+    animation: blink 1s infinite;
+}
+
+.shimmer-effect {
+    animation: shimmer 0.5s ease-in-out;
+}
+
+.function-glow:hover {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.bounce-click {
+    animation: bounce 0.3s ease-in-out;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.typewriter {
+    animation: typewriter 0.8s steps(20) forwards;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
