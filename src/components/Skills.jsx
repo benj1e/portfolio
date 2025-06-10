@@ -22,7 +22,7 @@ const Skills = () => {
                 .slice(1)
                 .replace(/([A-Z])/g, " $1")
                 .trim(),
-        logo: `src/assets/logos/${tool}.svg`,
+        logo: `./logos/${tool}.svg`,
     }));
 
     return (

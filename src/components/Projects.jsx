@@ -6,7 +6,9 @@ const NoProject = () => {
             <div className="flex flex-col items-center justify-center text-center text-gray-400 font-mono2">
                 <h1 className="text-5xl font-mono2 text-red-400">404</h1>
                 <p className="text-xl mt-2">Projects not started. 💔</p>
-                <small className="text-xs font-special text-gray-500">(give me a week)</small>
+                <small className="text-xs font-special text-gray-500">
+                    (give me a week)
+                </small>
             </div>
         </>
     );

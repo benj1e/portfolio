@@ -11,7 +11,7 @@ const CodeButton = ({
 
     const downloadResume = () => {
         const link = document.createElement("a");
-        link.href = "/portfolio/Resume.pdf"; // Put your resume.pdf in the public folder
+        link.href = "./Resume.pdf"; // Put your resume.pdf in the public folder
         link.download = "Benjamin_Alimele_Resume.pdf";
         document.body.appendChild(link);
         link.click();
