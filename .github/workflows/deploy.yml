@@ -10,6 +10,7 @@ on:
             - ".github/workflows/deploy.yml"
         branches:
             - main
+            - gh-pages
 
 jobs:
     build-deploy:

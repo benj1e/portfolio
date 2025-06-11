@@ -9,15 +9,6 @@
     "tags": ["AI", "NLP", "SaaS"]
   },
   {
-    "id": "p2",
-    "name": "Shoe Price Tracker",
-    "description": "A sneaker price tracking web app that notifies users of price drops across major retail stores.",
-    "technologies": ["Python", "FastAPI", "React", "SQLite", "BeautifulSoup"],
-    "github": "https://github.com/yourusername/shoe-price-tracker",
-    "live": "https://sneaktrack.yourdomain.com",
-    "tags": ["Web Scraping", "E-commerce", "Alerts"]
-  },
-  {
     "id": "p3",
     "name": "SmartNotes API",
     "description": "An API for managing and retrieving smart study notes using AI-generated summaries and tagging.",
