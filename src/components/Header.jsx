@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import React, { useState, useEffect } from "react";
 
-// The App component is for demonstration purposes to make the preview work.
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState("about");
@@ -17,13 +16,31 @@ const Header = () => {
     // --- Typing Animation State ---
     const [typedText, setTypedText] = useState("");
     const [cursorVisible, setCursorVisible] = useState(true);
-    const targetText = "benjamin_alimele()";
+    
+    // Responsive text based on screen size
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const fullText = "benjamin_alimele()";
+    const shortText = "benji()";
+    const [targetText, setTargetText] = useState(fullText);
     const [animationPhase, setAnimationPhase] = useState("TYPING");
 
     // --- Animation Configuration ---
     const TYPING_SPEED_MS = 120;
     const PAUSE_DURATION_MS = 3000;
     const DELETING_SPEED_MS = 80;
+
+    // --- Check screen size ---
+    useEffect(() => {
+        const checkScreenSize = () => {
+            const isSmall = window.innerWidth < 768; // md breakpoint
+            setIsSmallScreen(isSmall);
+            setTargetText(isSmall ? shortText : fullText);
+        };
+
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
 
     // --- Repeating Typing Animation Effect ---
     useEffect(() => {
@@ -60,6 +77,12 @@ const Header = () => {
                 break;
         }
     }, [typedText, animationPhase, targetText]);
+
+    // Reset animation when target text changes
+    useEffect(() => {
+        setTypedText("");
+        setAnimationPhase("TYPING");
+    }, [targetText]);
 
     // --- Effect for the blinking cursor ---
     useEffect(() => {
@@ -131,38 +154,46 @@ const Header = () => {
 
     return (
         <>
-            {/* Style tag to define the custom cursor */}
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out font-main ${
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out font-main ${
                     scrolled
-                        ? "bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50 py-3 shadow-lg shadow-gray-900/20"
-                        : "bg-transparent py-6"
+                        ? "bg-gray-900/80 backdrop-blur-xl border-b border-gray-700/30 py-3 shadow-2xl shadow-gray-900/30 transform translate-y-0"
+                        : "bg-transparent backdrop-blur-sm py-6 transform translate-y-0"
                 }`}
+                style={{
+                    backdropFilter: scrolled ? 'blur(20px) saturate(180%)' : 'blur(4px)'
+                }}
             >
-                <div className="max-w-6xl mx-auto px-6">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6">
                     <div className="flex items-center justify-between">
-                        {/* Animated Logo/Name with custom cursor hover */}
+                        {/* Animated Logo/Name */}
                         <div
-                            className={`transition-all duration-500 ${
-                                scrolled ? "scale-90" : "scale-100"
+                            className={`transition-all duration-700 ease-out ${
+                                scrolled 
+                                    ? "scale-90 transform translate-x-1" 
+                                    : "scale-100 transform translate-x-0"
                             }`}
                         >
-                            <h1 className="text-2xl font-bold text-white font-mono2 h-8">
-                                <span className="text-green-400 ">
+                            <h1 className={`font-bold text-white font-mono2 h-8 transition-all duration-500 ${
+                                scrolled ? "text-xl" : "text-2xl"
+                            }`}>
+                                <span className="text-green-400 drop-shadow-lg">
                                     {typedText}
                                 </span>
                                 <span
-                                    className={`inline-block w-0.5 h-6 bg-green-400 ml-1 -mb-1 transition-opacity duration-100 ${
+                                    className={`inline-block w-0.5 bg-green-400 ml-1 -mb-1 transition-all duration-300 shadow-lg shadow-green-400/50 ${
                                         cursorVisible
-                                            ? "opacity-100"
-                                            : "opacity-0"
-                                    }`}
+                                            ? "opacity-100 h-6"
+                                            : "opacity-0 h-4"
+                                    } ${scrolled ? "h-5" : "h-6"}`}
                                 ></span>
                             </h1>
                         </div>
 
-                        {/* Navigation with custom cursor hover */}
-                        <nav className="hidden md:flex items-center space-x-1 font-links-light">
+                        {/* Navigation */}
+                        <nav className={`hidden md:flex items-center space-x-1 font-links-light transition-all duration-700 ${
+                            scrolled ? "transform scale-95" : "transform scale-100"
+                        }`}>
                             {navItems.map((item) => {
                                 const Icon = item.icon;
                                 const isActive = activeSection === item.id;
@@ -170,7 +201,7 @@ const Header = () => {
                                     <button
                                         key={item.id}
                                         onClick={() => scrollToSection(item.id)}
-                                        className={`relative px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 group ${
+                                        className={`relative px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 group overflow-hidden ${
                                             isActive
                                                 ? "text-blue-400 bg-blue-400/10"
                                                 : "text-gray-300 hover:text-white hover:bg-gray-800/50"
@@ -178,13 +209,13 @@ const Header = () => {
                                     >
                                         <Icon
                                             size={16}
-                                            className="transition-transform group-hover:scale-110"
+                                            className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
                                         />
                                         <span className="font-medium">
                                             {item.label}
                                         </span>
                                         {isActive && (
-                                            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/20 to-purple-400/20 animate-pulse" />
+                                            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/10 to-purple-400/10 animate-pulse" />
                                         )}
                                         <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/0 to-purple-400/0 group-hover:from-blue-400/10 group-hover:to-purple-400/10 transition-all duration-300" />
                                     </button>
@@ -193,7 +224,9 @@ const Header = () => {
                         </nav>
 
                         {/* Social Links */}
-                        <div className="flex items-center space-x-3">
+                        <div className={`flex items-center space-x-3 transition-all duration-700 ${
+                            scrolled ? "transform scale-90" : "transform scale-100"
+                        }`}>
                             {socialLinks.map((social) => {
                                 const Icon = social.icon;
                                 return (
@@ -202,12 +235,12 @@ const Header = () => {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`p-2 rounded-lg bg-gray-800/50 text-gray-400 transition-all duration-300 hover:scale-110 hover:rotate-6 hover:bg-gray-700/50 ${social.color} group`}
+                                        className={`p-2 rounded-lg bg-gray-800/40 backdrop-blur-sm text-gray-400 transition-all duration-500 hover:scale-110 hover:rotate-6 hover:bg-gray-700/50 hover:shadow-lg hover:backdrop-blur-md ${social.color} group border border-gray-700/30 hover:border-gray-600/50`}
                                         title={social.name}
                                     >
                                         <Icon
                                             size={18}
-                                            className="transition-transform group-hover:scale-110"
+                                            className="transition-all duration-300 group-hover:scale-110 drop-shadow-sm"
                                         />
                                     </a>
                                 );
@@ -215,20 +248,29 @@ const Header = () => {
                         </div>
 
                         {/* Mobile Menu Button */}
-                        <button className="md:hidden p-2 rounded-lg bg-gray-800/50 text-gray-300 hover:text-white hover:bg-gray-700/50 transition-all duration-300">
+                        <button className={`md:hidden p-2 rounded-lg bg-gray-800/40 backdrop-blur-sm text-gray-300 hover:text-white hover:bg-gray-700/50 transition-all duration-500 border border-gray-700/30 hover:border-gray-600/50 hover:shadow-md ${
+                            scrolled ? "transform scale-90" : "transform scale-100"
+                        }`}>
                             <div className="w-5 h-5 flex flex-col justify-center space-y-1">
-                                <div className="w-full h-0.5 bg-current"></div>
-                                <div className="w-full h-0.5 bg-current"></div>
-                                <div className="w-full h-0.5 bg-current"></div>
+                                <div className="w-full h-0.5 bg-current transition-all duration-300"></div>
+                                <div className="w-full h-0.5 bg-current transition-all duration-300"></div>
+                                <div className="w-full h-0.5 bg-current transition-all duration-300"></div>
                             </div>
                         </button>
                     </div>
                 </div>
 
-                {/* Animated border bottom */}
+                {/* Animated border bottom with gradient */}
                 <div
-                    className={`absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent transition-all duration-500 ${
-                        scrolled ? "w-full opacity-100" : "w-0 opacity-0"
+                    className={`absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent transition-all duration-1000 ease-out ${
+                        scrolled ? "w-full opacity-100 shadow-lg shadow-blue-400/30" : "w-0 opacity-0"
+                    }`}
+                />
+                
+                {/* Subtle glow effect when scrolled */}
+                <div
+                    className={`absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent transition-all duration-700 pointer-events-none ${
+                        scrolled ? "opacity-100" : "opacity-0"
                     }`}
                 />
             </header>
