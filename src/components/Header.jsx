@@ -164,7 +164,7 @@ const Header = () => {
                     backdropFilter: scrolled ? 'blur(20px) saturate(180%)' : 'blur(4px)'
                 }}
             >
-                <div className="max-w-6xl mx-auto px-4 sm:px-6">
+                <div className="max-w-6xl mx-auto px-3 sm:px-6">
                     <div className="flex items-center justify-between">
                         {/* Animated Logo/Name */}
                         <div
@@ -175,7 +175,7 @@ const Header = () => {
                             }`}
                         >
                             <h1 className={`font-bold text-white font-mono2 h-8 transition-all duration-500 ${
-                                scrolled ? "text-xl" : "text-2xl"
+                                scrolled ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"
                             }`}>
                                 <span className="text-green-400 drop-shadow-lg">
                                     {typedText}
@@ -224,7 +224,7 @@ const Header = () => {
                         </nav>
 
                         {/* Social Links */}
-                        <div className={`flex items-center space-x-3 transition-all duration-700 ${
+                        <div className={`flex items-center space-x-2 sm:space-x-3 transition-all duration-700 ${
                             scrolled ? "transform scale-90" : "transform scale-100"
                         }`}>
                             {socialLinks.map((social) => {
@@ -235,12 +235,12 @@ const Header = () => {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`p-2 rounded-lg bg-gray-800/40 backdrop-blur-sm text-gray-400 transition-all duration-500 hover:scale-110 hover:rotate-6 hover:bg-gray-700/50 hover:shadow-lg hover:backdrop-blur-md ${social.color} group border border-gray-700/30 hover:border-gray-600/50`}
+                                        className={`p-1.5 sm:p-2 rounded-lg bg-gray-800/40 backdrop-blur-sm text-gray-400 transition-all duration-500 hover:scale-110 hover:rotate-6 hover:bg-gray-700/50 hover:shadow-lg hover:backdrop-blur-md ${social.color} group border border-gray-700/30 hover:border-gray-600/50`}
                                         title={social.name}
                                     >
                                         <Icon
-                                            size={18}
-                                            className="transition-all duration-300 group-hover:scale-110 drop-shadow-sm"
+                                            size={16}
+                                            className="transition-all duration-300 group-hover:scale-110 drop-shadow-sm sm:w-[18px] sm:h-[18px]"
                                         />
                                     </a>
                                 );
@@ -248,7 +248,7 @@ const Header = () => {
                         </div>
 
                         {/* Mobile Menu Button */}
-                        <button className={`md:hidden p-2 rounded-lg bg-gray-800/40 backdrop-blur-sm text-gray-300 hover:text-white hover:bg-gray-700/50 transition-all duration-500 border border-gray-700/30 hover:border-gray-600/50 hover:shadow-md ${
+                        <button className={`md:hidden p-1.5 sm:p-2 rounded-lg bg-gray-800/40 backdrop-blur-sm text-gray-300 hover:text-white hover:bg-gray-700/50 transition-all duration-500 border border-gray-700/30 hover:border-gray-600/50 hover:shadow-md ${
                             scrolled ? "transform scale-90" : "transform scale-100"
                         }`}>
                             <div className="w-5 h-5 flex flex-col justify-center space-y-1">
