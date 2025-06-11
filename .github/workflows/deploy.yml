@@ -11,42 +11,38 @@ on:
         branches:
             - main
 jobs:
-    build-deploy:
-        runs-on: ubuntu-latest
+  build-deploy:
+    runs-on: ubuntu-latest
+    
+    # 1. This permission block is still required and correct.
+    permissions:
+      contents: write
 
-        # Add this permissions block to grant write access
-        permissions:
-            contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-        steps:
-            - name: Checkout repo
-              uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: "18"
+      - name: Install dependencies
+        run: npm ci
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Set Git user identity
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Actions"
 
-            # This step is not strictly necessary as the gh-pages package handles it,
-            # but it doesn't hurt.
-            - name: Set Git user identity
-              run: |
-                  git config user.email "action@github.com"
-                  git config user.name "GitHub Actions"
+      - name: Build project
+        run: npm run build
 
-            - name: Build project
-              run: npm run build
-
-            - name: Deploy to GitHub Pages
-              # Your custom script using gh-pages CLI is perfectly fine.
-              # It relies on the GITHUB_TOKEN which now has the correct permissions.
-              run: npm run deploy
-              env:
-                  # The GITHUB_TOKEN is automatically available to the gh-pages package
-                  # when run in an action, so you don't need to manually construct the URL.
-                  # The package is smart enough to find and use it.
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  CI: true
+      # 2. Use your original deploy command that constructs the remote URL.
+      # This explicitly tells gh-pages how to authenticate.
+      - name: Deploy to GitHub Pages
+        run: |
+          REMOTE_REPO="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          npm run deploy -- -r "$REMOTE_REPO"
+        env:
+          CI: true
