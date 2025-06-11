@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import Menu from "./components/Menu";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import MyCareer from "./components/MyCareer";
+import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import Connect from "./components/Connect";
 import { Outlet } from "react-router";
 
 const App = () => {
@@ -19,8 +19,8 @@ const App = () => {
                     <Home />
                     <Skills />
                     <Projects />
-                    <MyCareer />
-                    <Contact />
+                    <Experience />
+                    <Connect />
                 </div>
             </div>
         </div>

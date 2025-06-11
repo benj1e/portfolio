@@ -25,46 +25,6 @@ const Header = () => {
     const PAUSE_DURATION_MS = 3000;
     const DELETING_SPEED_MS = 80;
 
-    // --- SVG Data URI for the custom cursor ---
-    // You can replace this with your own SVG by converting it to a data URI.
-    const customCursorSVG = `data:image/svg+xml;base64,${btoa(`
-        <?xml version="1.0" standalone="no"?>
-        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
-        "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-        width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
-        preserveAspectRatio="xMidYMid meet">
-
-        <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
-        fill="#000000" stroke="none">
-        <path d="M2030 3515 l0 -75 -75 0 -75 0 0 -155 0 -155 75 0 75 0 0 155 0 155
-        80 0 80 0 0 75 0 75 -80 0 -80 0 0 -75z"/>
-        <path d="M2500 3515 l0 -74 -77 -3 -78 -3 -3 -152 -3 -153 81 0 80 0 0 155 0
-        155 80 0 80 0 0 75 0 75 -80 0 -80 0 0 -75z"/>
-        <path d="M2970 3515 l0 -74 -77 -3 -78 -3 -3 -152 -3 -153 81 0 80 0 0 155 0
-        155 75 0 75 0 0 75 0 75 -75 0 -75 0 0 -75z"/>
-        <path d="M2030 2965 l0 -156 78 3 77 3 3 153 3 152 -81 0 -80 0 0 -155z"/>
-        <path d="M2500 2965 l0 -156 78 3 77 3 3 153 3 152 -81 0 -80 0 0 -155z"/>
-        <path d="M2970 2965 l0 -155 75 0 75 0 0 155 0 155 -75 0 -75 0 0 -155z"/>
-        <path d="M1720 2270 l0 -390 75 0 75 0 0 310 0 310 630 0 630 0 0 -310 0 -310
-        230 0 230 0 0 310 0 310 -155 0 -155 0 0 80 0 80 -780 0 -780 0 0 -390z m1720
-        -85 l0 -155 -80 0 -80 0 0 155 0 155 80 0 80 0 0 -155z"/>
-        <path d="M1880 1795 l0 -75 -160 0 -160 0 0 -155 0 -155 80 0 80 0 0 -80 0
-        -80 780 0 780 0 0 80 0 80 80 0 80 0 0 155 0 155 -160 0 -160 0 0 75 0 75 -75
-        0 -75 0 0 -75 0 -75 -470 0 -470 0 0 75 0 75 -75 0 -75 0 0 -75z m1400 -310
-        l0 -75 -780 0 -780 0 0 75 0 75 780 0 780 0 0 -75z"/>
-        </g>
-        </svg>
-    `)}`;
-
-    // --- Custom Cursor Handlers ---
-    const activateCustomCursor = () => {
-        document.body.classList.add("custom-cursor");
-    };
-    const deactivateCustomCursor = () => {
-        document.body.classList.remove("custom-cursor");
-    };
-
     // --- Repeating Typing Animation Effect ---
     useEffect(() => {
         switch (animationPhase) {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Linkedin, Github, Mail, Phone, Info } from "lucide-react";
+import Section from "./widgets/Section";
 
 const socials = [
     {
@@ -24,9 +25,9 @@ const socials = [
     },
 ];
 
-const Contact = () => {
+const Connect = () => {
     return (
-        <div className="max-w-1/2 min-w-2/5 mx-auto mt-4 px-4">
+        <Section>
             <h2 className="text-2xl font-mono2 mb-4">connect</h2>
 
             <div className="flex flex-wrap gap-4 justify-center font-links-light">
@@ -46,8 +47,8 @@ const Contact = () => {
                 ))}
             </div>
 
-        </div>
+        </Section>
     );
 };
 
-export default Contact;
+export default Connect;

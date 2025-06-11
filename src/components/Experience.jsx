@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CodeBlock from "./widgets/CodeBlock";
+import Section from "./widgets/Section";
 
 const JobDetails = ({ data }) => {
     return (
@@ -66,7 +67,7 @@ const NoJob = () => {
     );
 };
 
-const MyCareer = () => {
+const Experience = () => {
     const [careerData, setCareerData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -87,7 +88,7 @@ const MyCareer = () => {
     }
 
     return (
-        <div className="mx-auto max-w-1/2 min-w-2/5 p-4 mt-4">
+        <Section>
             <h2 className="text-2xl mb-4 font-mono2">experience</h2>
 
             {careerData.length === 0 ? (
@@ -95,8 +96,8 @@ const MyCareer = () => {
             ) : (
                 <JobDetails data={careerData} />
             )}
-        </div>
+        </Section>
     );
 };
 
-export default MyCareer;
+export default Experience;

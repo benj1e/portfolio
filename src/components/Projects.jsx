@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Section from "./widgets/Section";
 
 const NoProject = () => {
     return (
         <>
             <div className="flex flex-col items-center justify-center text-center text-gray-400 font-mono2">
-                <h1 className="text-5xl font-mono2 text-red-400">404</h1>
-                <p className="text-xl mt-2">Projects not started. 💔</p>
+                <h1 className="text-5xl font-mono2 text-red-400">🥀</h1>
+                <p className="text-xl mt-2">Projects not started.</p>
                 <small className="text-xs font-special text-gray-500">
                     (give me a week)
                 </small>
@@ -27,7 +28,7 @@ const Projects = () => {
     console.log("Projects component rendered with projects:", projects);
 
     return (
-        <div className="mx-auto max-w-1/2 min-w-2/5 p-4 mt-4">
+        <Section>
             <h2 className="font-mono2 text-2xl mb-4">projects</h2>
             <div className="mx-auto w-full flex flex-wrap gap-4 justify-center px-4">
                 {projects.length === 0 ? (
@@ -107,7 +108,7 @@ const Projects = () => {
                     ))
                 )}
             </div>
-        </div>
+        </Section>
     );
 };
 
