@@ -59,7 +59,7 @@ function HeroSection() {
 }
 const Home = () => {
     return (
-        <Section>
+        <Section id={"about"}>
             {/* Main container with responsive padding */}
             {/* Header */}
             <Headings text="intro" />

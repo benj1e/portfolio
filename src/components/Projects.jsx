@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Section from "./widgets/Section";
+import DinoSVG from "./widgets/DinoSVG";
 
 const NoProject = () => {
     return (
@@ -12,6 +13,35 @@ const NoProject = () => {
                 </small>
             </div>
         </>
+    );
+};
+
+const ProjectImage = ({ project }) => {
+    const [imageError, setImageError] = useState(false);
+
+    const handleImageError = () => {
+        setImageError(true);
+    };
+
+    if (imageError || !project.image) {
+        return (
+            <div className="rounded-sm h-40 sm:h-48 w-full border border-white/20 flex items-center justify-center">
+                {/* Replace this div with your dinosaur SVG */}
+                <div className="w-12 h-auto opacity-60">
+                    {/* Your dinosaur SVG goes here */}
+                    <DinoSVG />
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <img
+            src={project.image}
+            alt={project.title}
+            className="rounded-sm object-cover h-40 sm:h-48 w-full border border-gray-700"
+            onError={handleImageError}
+        />
     );
 };
 
@@ -30,42 +60,33 @@ const Projects = () => {
     return (
         <Section>
             <h2 className="font-mono2 text-2xl mb-4">projects</h2>
-            <div className="mx-auto w-full flex flex-wrap gap-4 justify-center px-4">
+            <div className="mx-auto w-full flex flex-wrap gap-3 sm:gap-4 justify-center px-2 sm:px-4">
                 {projects.length === 0 ? (
                     <NoProject />
                 ) : (
                     projects.slice(0, 2).map((project, index) => (
                         <div
                             key={index}
-                            className="w-2/5 flex-auto bg-white/10 border border-white/15 rounded-xl shadow-lg p-4 flex flex-col gap-4"
+                            className="w-full sm:w-[calc(50%-0.5rem)] md:flex-1 lg:w-2/5 flex-none bg-white/10 border border-white/15 rounded-xl shadow-lg p-3 sm:p-4 flex flex-col gap-3 sm:gap-4 min-w-0"
                         >
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="rounded-lg object-cover h-48 w-full border border-gray-700"
-                                onError={(e) => {
-                                    e.target.onerror = null;
-                                    e.target.src =
-                                        "https://placehold.co/400x300?text=Preview";
-                                }}
-                            />
+                            <ProjectImage project={project} />
 
-                            <div>
-                                <h3 className="text-xl font-main text-white">
+                            <div className="min-w-0">
+                                <h3 className="text-lg sm:text-xl font-main text-white truncate">
                                     {project.title}
                                 </h3>
-                                <p className="mt-1 text-gray-400 font-links-light text-sm">
+                                <p className="mt-1 text-gray-400 font-links-light text-sm leading-relaxed">
                                     {project.description}
                                 </p>
                             </div>
 
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                 {Array.isArray(project.tags) &&
                                     project.tags.map((tag, i) => (
                                         <span
                                             key={i}
                                             className="text-gray-400 text-xs font-links-light rounded-xl bg-white/10 backdrop-blur-md border border-white/10 shadow-inner
-                                                px-2 py-0 flex items-center justify-center gap-2"
+                                                px-2 py-1 flex items-center justify-center gap-2 flex-shrink-0"
                                         >
                                             {tag}
                                         </span>
@@ -78,7 +99,7 @@ const Projects = () => {
                                         href={project.website}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-sm px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700"
+                                        className="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
                                     >
                                         Website
                                     </a>
@@ -88,7 +109,7 @@ const Projects = () => {
                                         href={project.source}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-sm px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700"
+                                        className="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
                                     >
                                         Source
                                     </a>
@@ -98,7 +119,7 @@ const Projects = () => {
                                         href={project.ui}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-sm px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700"
+                                        className="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
                                     >
                                         Source (UI)
                                     </a>

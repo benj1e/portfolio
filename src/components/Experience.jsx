@@ -88,7 +88,7 @@ const Experience = () => {
     }
 
     return (
-        <Section>
+        <Section id={"experience"}>
             <h2 className="text-2xl mb-4 font-mono2">experience</h2>
 
             {careerData.length === 0 ? (
