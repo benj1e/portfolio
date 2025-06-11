@@ -1,20 +1,47 @@
 [
   {
-    "id": "p1",
-    "name": "AI Resume Analyzer",
-    "description": "A tool that analyzes resumes using natural language processing and offers tailored improvement suggestions.",
-    "technologies": ["FastAPI", "React", "OpenAI API", "TailwindCSS"],
-    "github": "https://github.com/yourusername/ai-resume-analyzer",
-    "live": "https://resume-ai.yourdomain.com",
-    "tags": ["AI", "NLP", "SaaS"]
+    "id": 1,
+    "title": "AI Assistant for Productivity & Wellbeing",
+    "description": "A cross-platform app that acts as a self-improving AI productivity assistant, using voice interaction and customizable workflows via tools like LangChain or n8n.",
+    "techStack": ["Flutter", "LangChain", "FastAPI", "n8n", "OpenAI"],
+    "tags": ["AI", "Assistant", "Productivity", "Voice"],
+    "status": "in-progress",
+    "repo": "https://github.com/yourusername/ai-productivity-assistant"
   },
   {
-    "id": "p3",
-    "name": "SmartNotes API",
-    "description": "An API for managing and retrieving smart study notes using AI-generated summaries and tagging.",
-    "technologies": ["FastAPI", "PostgreSQL", "LangChain", "Redis"],
-    "github": "https://github.com/yourusername/smartnotes-api",
-    "live": "https://smartnotes-api.yourdomain.com",
-    "tags": ["Education", "API", "AI"]
+    "id": 2,
+    "title": "Student Notes Sharing Platform",
+    "description": "A web app where students can upload and access class notes easily, helping improve access to study resources in real-time.",
+    "techStack": ["Next.js", "Firebase", "Tailwind CSS"],
+    "tags": ["Notes", "Students", "WebApp", "Education"],
+    "status": "planned",
+    "repo": "https://github.com/yourusername/smartnotes-platform"
+  },
+  {
+    "id": 3,
+    "title": "Shoe Price Tracker",
+    "description": "An app that tracks shoe prices across JD Sports, Sportchek, and other stores, stores historical price data, and alerts users on price drops.",
+    "techStack": ["FastAPI", "React", "Playwright", "PostgreSQL"],
+    "tags": ["Scraping", "Footwear", "E-commerce"],
+    "status": "building",
+    "repo": "https://github.com/yourusername/shoe-price-tracker"
+  },
+  {
+    "id": 4,
+    "title": "Reddit TikTok/YouTube Story Bot",
+    "description": "Automation tool that turns Reddit threads into short video content for YouTube Shorts and TikTok with voiceovers and subtitles.",
+    "techStack": ["Python", "MoviePy", "TTS", "Reddit API"],
+    "tags": ["Automation", "Reddit", "Content Creation"],
+    "status": "experimenting",
+    "repo": "https://github.com/yourusername/reddit-video-bot"
+  },
+  {
+    "id": 5,
+    "title": "Football-Themed Portfolio Site",
+    "description": "A creative, EA FC-inspired portfolio showcasing your work and personality using football visual design.",
+    "techStack": ["React", "Tailwind CSS"],
+    "tags": ["Portfolio", "Themed", "Creative"],
+    "status": "in-progress",
+    "repo": "https://github.com/yourusername/fc25-portfolio"
   }
 ]
