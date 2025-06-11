@@ -4,6 +4,7 @@ on:
     push:
         paths:
             - "projects.json"
+            - "career.json"
             - "src/**"
             - "public/**"
             - ".github/workflows/deploy.yml"
@@ -26,8 +27,11 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
-            - name: Build project & deploy to GitHub Pages
-              run: npm run predeploy
+            - name: Build project
+              run: npm run build
+
+            - name: Deploy to GitHub Pages
+              run: npm run deploy
 
               env:
                   CI: true
