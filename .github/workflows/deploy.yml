@@ -37,12 +37,10 @@ jobs:
               run: npm run build
 
             - name: Deploy to GitHub Pages
-              # We explicitly pass the token in the URL for gh-pages
               run: |
                   # Construct the repository URL with the token
                   REMOTE_REPO="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+                  # Execute the deploy script, passing the authenticated URL directly to gh-pages
                   npm run deploy -- -r "$REMOTE_REPO"
               env:
                   CI: true
-                  # GITHUB_TOKEN is now used directly in the command
-                  # GITHUB_TOKEN: {{ secrets.GITHUB_TOKEN }} # No longer needed here if passed in command
