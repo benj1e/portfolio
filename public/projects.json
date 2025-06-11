@@ -19,25 +19,7 @@
   },
   {
     "id": 3,
-    "title": "Shoe Price Tracker",
-    "description": "An app that tracks shoe prices across JD Sports, Sportchek, and other stores, stores historical price data, and alerts users on price drops.",
-    "techStack": ["FastAPI", "React", "Playwright", "PostgreSQL"],
-    "tags": ["Scraping", "Footwear", "E-commerce"],
-    "status": "building",
-    "repo": "https://github.com/yourusername/shoe-price-tracker"
-  },
-  {
-    "id": 4,
-    "title": "Reddit TikTok/YouTube Story Bot",
-    "description": "Automation tool that turns Reddit threads into short video content for YouTube Shorts and TikTok with voiceovers and subtitles.",
-    "techStack": ["Python", "MoviePy", "TTS", "Reddit API"],
-    "tags": ["Automation", "Reddit", "Content Creation"],
-    "status": "experimenting",
-    "repo": "https://github.com/yourusername/reddit-video-bot"
-  },
-  {
-    "id": 5,
-    "title": "Football-Themed Portfolio Site",
+    "title": "Programming-Themed Portfolio Site",
     "description": "A creative, EA FC-inspired portfolio showcasing your work and personality using football visual design.",
     "techStack": ["React", "Tailwind CSS"],
     "tags": ["Portfolio", "Themed", "Creative"],
