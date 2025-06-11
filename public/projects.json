@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "id": "p1",
+    "name": "AI Resume Analyzer",
+    "description": "A tool that analyzes resumes using natural language processing and offers tailored improvement suggestions.",
+    "technologies": ["FastAPI", "React", "OpenAI API", "TailwindCSS"],
+    "github": "https://github.com/yourusername/ai-resume-analyzer",
+    "live": "https://resume-ai.yourdomain.com",
+    "tags": ["AI", "NLP", "SaaS"]
+  },
+  {
+    "id": "p2",
+    "name": "Shoe Price Tracker",
+    "description": "A sneaker price tracking web app that notifies users of price drops across major retail stores.",
+    "technologies": ["Python", "FastAPI", "React", "SQLite", "BeautifulSoup"],
+    "github": "https://github.com/yourusername/shoe-price-tracker",
+    "live": "https://sneaktrack.yourdomain.com",
+    "tags": ["Web Scraping", "E-commerce", "Alerts"]
+  },
+  {
+    "id": "p3",
+    "name": "SmartNotes API",
+    "description": "An API for managing and retrieving smart study notes using AI-generated summaries and tagging.",
+    "technologies": ["FastAPI", "PostgreSQL", "LangChain", "Redis"],
+    "github": "https://github.com/yourusername/smartnotes-api",
+    "live": "https://smartnotes-api.yourdomain.com",
+    "tags": ["Education", "API", "AI"]
+  }
+]
