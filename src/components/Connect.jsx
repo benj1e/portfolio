@@ -27,7 +27,7 @@ const socials = [
 
 const Connect = () => {
     return (
-        <Section>
+        <Section id={"connect"}>
             <h2 className="text-2xl font-mono2 mb-4">connect</h2>
 
             <div className="flex flex-wrap gap-4 justify-center font-links-light">

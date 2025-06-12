@@ -11,9 +11,7 @@ import {
 } from "lucide-react";
 import React, { useState, useEffect, useCallback } from "react";
 
-const Header = () => {
-    // State for header background on scroll
-    const [scrolled, setScrolled] = useState(false);
+const Header = ({ scrolled }) => {
     // State for tracking the active section for nav highlighting
     const [activeSection, setActiveSection] = useState("about");
     // State for mobile menu visibility
@@ -28,9 +26,9 @@ const Header = () => {
     const [animationPhase, setAnimationPhase] = useState("TYPING");
 
     // --- Animation Configuration ---
-    const TYPING_SPEED_MS = 120;
-    const PAUSE_DURATION_MS = 3000;
-    const DELETING_SPEED_MS = 80;
+    const TYPING_SPEED_MS = 100;
+    const PAUSE_DURATION_MS = 3500;
+    const DELETING_SPEED_MS = 70;
 
     // --- Utility Functions ---
 
@@ -41,6 +39,7 @@ const Header = () => {
             setIsMenuOpen(false);
         }
         const element = document.getElementById(sectionId);
+        console.log("Scrolling to section:", sectionId, element);
         if (element) {
             // A slight offset to account for the fixed header height
             const headerOffset = 100;
@@ -57,55 +56,10 @@ const Header = () => {
 
     // --- useEffect Hooks for Core Functionality ---
 
-    // Effect for scroll-based header changes and active section highlighting
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.scrollY;
-            setScrolled(scrollTop > 50);
-
-            const sections = ["about", "experience", "projects", "contact"];
-            let currentSectionId = "";
-
-            // Find the section currently in view
-            for (const sectionId of sections) {
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    // Check if the section is within the top 150px of the viewport
-                    if (rect.top <= 150 && rect.bottom >= 150) {
-                        currentSectionId = sectionId;
-                        break; // Found the active section
-                    }
-                }
-            }
-
-            // Fallback to the top-most section if none are perfectly aligned
-            if (!currentSectionId && sections.length > 0) {
-                for (const sectionId of sections) {
-                    const element = document.getElementById(sectionId);
-                    if (element && element.getBoundingClientRect().top > 0) {
-                        currentSectionId =
-                            sections[sections.indexOf(sectionId) - 1] ||
-                            "about";
-                        break;
-                    }
-                }
-            }
-
-            if (currentSectionId) {
-                setActiveSection(currentSectionId);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        // Clean up the event listener when the component unmounts
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []); // Empty dependency array means this runs only once on mount
-
     // Effect for handling screen resizing, primarily for the typing animation text
     useEffect(() => {
         const checkScreenSize = () => {
-            const isSmall = window.innerWidth < 768; // Tailwind's 'md' breakpoint
+            const isSmall = window.innerWidth < 850; // Tailwind's 'md' breakpoint
             setTargetText(isSmall ? shortText : fullText);
         };
 
@@ -169,7 +123,7 @@ const Header = () => {
         { id: "about", label: "About", icon: User },
         { id: "experience", label: "Experience", icon: Briefcase },
         { id: "projects", label: "Projects", icon: Code },
-        { id: "contact", label: "Contact", icon: MessageCircle },
+        { id: "connect", label: "Contact", icon: MessageCircle },
     ];
 
     const socialLinks = [
@@ -197,11 +151,12 @@ const Header = () => {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out font-main ${
-                    scrolled
-                        ? "bg-gray-900/80 backdrop-blur-xl border-b border-gray-700/30 py-3 sm:py-1 shadow-2xl shadow-gray-900/30"
-                        : "bg-transparent py-3 lg:py-5"
-                }`}
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out font-main bg-gray-900/80 backdrop-blur-xl border-b border-gray-700/30 sm:py-3 shadow-2xl shadow-gray-900/30 py-6
+                `}
+                style={{
+                    background:
+                        "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.05) 100%)",
+                }}
             >
                 <div className="max-w-6xl mx-auto px-4 sm:px-6">
                     <div className="flex items-center justify-between">
@@ -382,11 +337,11 @@ const Header = () => {
             </header>
 
             {/* Spacer to prevent content from jumping under the fixed header */}
-            <div
+            {/* <div
                 className={`transition-all duration-700 ease-out ${
                     scrolled ? "h-[76px]" : "h-[100px]"
                 }`}
-            />
+            /> */}
         </>
     );
 };

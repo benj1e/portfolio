@@ -55,10 +55,9 @@ const Projects = () => {
             .catch((err) => console.error("Error loading projects:", err));
     }, []);
 
-    console.log("Projects component rendered with projects:", projects);
 
     return (
-        <Section>
+        <Section id={"projects"}>
             <h2 className="font-mono2 text-2xl mb-4">projects</h2>
             <div className="mx-auto w-full flex flex-wrap gap-3 sm:gap-4 justify-center px-2 sm:px-4">
                 {projects.length === 0 ? (

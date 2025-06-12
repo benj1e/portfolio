@@ -1,0 +1,199 @@
+/* colorful-background.css */
+/* Modern colorful orb background effect - Dark Mode */
+
+.colorful-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+}
+
+.colorful-background::before,
+.colorful-background::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float 20s ease-in-out infinite;
+}
+
+.colorful-background::before {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #8b5cf6, #6366f1);
+    top: -250px;
+    right: -250px;
+    animation-delay: -10s;
+}
+
+.colorful-background::after {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #ec4899, #f97316);
+    bottom: -200px;
+    left: -200px;
+    animation-delay: -5s;
+}
+
+/* Additional orbs for more complexity */
+.orb-1,
+.orb-2,
+.orb-3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    animation: float 25s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #06b6d4, #0ea5e9);
+    top: 20%;
+    left: 70%;
+    animation-delay: -15s;
+}
+
+.orb-2 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #10b981, #059669);
+    bottom: 60%;
+    right: 80%;
+    animation-delay: -7s;
+}
+
+.orb-3 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #7c3aed, #c084fc);
+    top: 60%;
+    left: 10%;
+    animation-delay: -12s;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    50% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    75% {
+        transform: translate(20px, 10px) scale(1.05);
+    }
+}
+
+/* Alternative: Simpler version with just two orbs */
+.simple-colorful-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(45deg, #0f172a 0%, #1e293b 100%);
+    opacity: 1;
+}
+
+.simple-colorful-bg::before {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(
+        circle,
+        rgba(139, 92, 246, 0.4),
+        transparent 70%
+    );
+    top: -30%;
+    right: -30%;
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+.simple-colorful-bg::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(236, 72, 153, 0.4),
+        transparent 70%
+    );
+    bottom: -25%;
+    left: -25%;
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+/* Dark mode version */
+.dark-colorful-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.dark-colorful-bg::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(
+        circle,
+        rgba(138, 43, 226, 0.4),
+        transparent 70%
+    );
+    top: -250px;
+    right: -250px;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 18s ease-in-out infinite;
+}
+
+.dark-colorful-bg::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 20, 147, 0.4),
+        transparent 70%
+    );
+    bottom: -200px;
+    left: -200px;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 22s ease-in-out infinite reverse;
+}
+
+/* Make sure your content stays above the background */
+body {
+    position: relative;
+    z-index: 1;
+}
+
+/* Optional: Add backdrop blur to elements for glassmorphism effect */
+.glass-card {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}

@@ -45,14 +45,14 @@ function ContentSection() {
 
 function HeroSection() {
     return (
-        <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-x-4 sm:gap-x-6 xs:gap-x-2 ">
-            <img
+        <div className="flex flex-col sm:flex-row items-center justify-center sm:items-start gap-x-4 sm:gap-x-6 xs:gap-x-2 ">
+            {/* <img
                 src="https://placehold.co/300x300"
                 height={300}
                 width={300}
                 className="rounded max-w-[150px] sm:max-w-[200px] lg:max-w-[250px] h-auto"
                 alt="Benjamin Alimele pic"
-            />
+            /> */}
             <ContentSection />
         </div>
     );

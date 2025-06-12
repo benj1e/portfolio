@@ -28,7 +28,7 @@ const Skills = () => {
     }));
 
     return (
-        <Section className="mt-5 cursor-default">
+        <Section className="mt-5 cursor-default" id={"skills"}>
             <Headings text="skills" />
             <ul className="flex gap-x-2 gap-y-2 sm:gap-x-3 justify-center flex-wrap">
                 {skills.map((skill, index) => (
