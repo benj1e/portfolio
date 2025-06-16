@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "title": "Personal Portfolio",
+        "description": "A modern, responsive portfolio website built with React and Tailwind CSS to showcase my projects and skills.",
+        "image": "/proj_img/proj1.png",
+        "tags": ["React", "Tailwind CSS", "HTML", "Frontend"],
+        "website": "/portfolio",
+        "source": "https://github.com/benj1e/portfolio"
+    }
+]
