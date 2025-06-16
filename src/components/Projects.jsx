@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Section from "./widgets/Section";
 import DinoSVG from "./widgets/DinoSVG";
+import { Github, Globe } from "lucide-react";
 
 const NoProject = () => {
     return (
@@ -55,7 +56,6 @@ const Projects = () => {
             .catch((err) => console.error("Error loading projects:", err));
     }, []);
 
-
     return (
         <Section id={"projects"}>
             <h2 className="font-mono2 text-2xl mb-4">projects</h2>
@@ -92,14 +92,15 @@ const Projects = () => {
                                     ))}
                             </div>
 
-                            <div className="flex flex-wrap gap-2 mt-auto">
+                            <div className="flex flex-wrap gap-2 mt-auto font-main">
                                 {project.website && (
                                     <a
                                         href={project.website}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
+                                        className="text-xs flex items-center justify-center gap-2 sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
                                     >
+                                        <Globe className="w-4" />
                                         Website
                                     </a>
                                 )}
@@ -108,8 +109,9 @@ const Projects = () => {
                                         href={project.source}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
+                                        className="text-xs flex items-center justify-center gap-2 sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
                                     >
+                                        <Github className="w-4" />
                                         Source
                                     </a>
                                 )}
@@ -118,7 +120,7 @@ const Projects = () => {
                                         href={project.ui}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
+                                        className="text-xs flex items-center justify-center gap-2 sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
                                     >
                                         Source (UI)
                                     </a>
