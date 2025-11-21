@@ -1,0 +1,42 @@
+[
+  {
+    "career": [
+      {
+        "title": "Software Engineer",
+        "company": "TechCorp Inc.",
+        "location": "hybrid",
+        "startDate": "2020-06-01",
+        "endDate": "2023-12-31",
+        "description": [
+          "Developed backend services using Python and Docker.",
+          "Optimized database queries reducing response time by 40%."
+        ],
+        "skills": [
+          "Python",
+          "Docker",
+          "SQL",
+          "AWS"
+        ],
+        "latest": false
+      },
+      {
+        "title": "Senior Software Engineer",
+        "company": "InnovateX",
+        "location": "remote (Canada)",
+        "startDate": "2024-01-15",
+        "endDate": "Present",
+        "description": [
+          "Lead development of AI-driven analytics platform.",
+          "Mentor junior developers and design scalable APIs."
+        ],
+        "skills": [
+          "Python",
+          "Machine Learning",
+          "RESTful APIs",
+          "Kubernetes"
+        ],
+        "latest": true
+      }
+    ]
+  }
+]
