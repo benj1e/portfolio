@@ -47,19 +47,19 @@ jobs:
         env:
           CI: true
 
-      - name: Ensure career.json and projects.json exist
-        run: |
-          if [ ! -f public/career.json ]; then
-            echo '[{}]' > public/career.json
-            git add public/career.json
-          fi
-          if [ ! -f public/projects.json ]; then
-            echo '[{}]' > public/projects.json
-            git add public/projects.json
-          fi
-          if git diff --cached --quiet; then
-            echo "No new files to commit."
-          else
-            git commit -m "Add missing career.json and/or projects.json"
-            git push
-          fi
+      # - name: Ensure career.json and projects.json exist
+      #   run: |
+      #     if [ ! -f public/career.json ]; then
+      #       echo '[{}]' > public/career.json
+      #       git add public/career.json
+      #     fi
+      #     if [ ! -f public/projects.json ]; then
+      #       echo '[{}]' > public/projects.json
+      #       git add public/projects.json
+      #     fi
+      #     if git diff --cached --quiet; then
+      #       echo "No new files to commit."
+      #     else
+      #       git commit -m "Add missing career.json and/or projects.json"
+      #       git push
+      #     fi
