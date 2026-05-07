@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import Menu from "./components/Menu";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Education from "./components/Education";
 import Experience from "./components/Experience";
+import Volunteer from "./components/Volunteer";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Connect from "./components/Connect";
@@ -19,8 +21,10 @@ const App = () => {
                 <div className="flex-1 overflow-auto p-4">
                     <Home />
                     <Skills />
+                    <Education />
                     <Projects />
                     <Experience />
+                    <Volunteer />
                     <Connect />
                 </div>
             </div>

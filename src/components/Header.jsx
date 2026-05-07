@@ -8,6 +8,8 @@ import {
     MessageCircle,
     X,
     Menu,
+    GraduationCap,
+    Heart,
 } from "lucide-react";
 import React, { useState, useEffect, useCallback } from "react";
 
@@ -121,8 +123,11 @@ const Header = ({ scrolled }) => {
     // --- Data for Navigation and Socials ---
     const navItems = [
         { id: "about", label: "About", icon: User },
-        { id: "experience", label: "Experience", icon: Briefcase },
+        { id: "skills", label: "Skills", icon: Code },
+        { id: "education", label: "Education", icon: GraduationCap },
         { id: "projects", label: "Projects", icon: Code },
+        { id: "experience", label: "Experience", icon: Briefcase },
+        { id: "volunteer", label: "Volunteer", icon: Heart },
         { id: "connect", label: "Contact", icon: MessageCircle },
     ];
 

@@ -30,7 +30,21 @@ const JobDetails = ({ data }) => {
                             {job.startDate} -{" "}
                             {job.latest ? "Present" : job.endDate}
                         </time>
-                        <CodeBlock code={job.description} language="markdown" />
+                        <CodeBlock
+                            code={Array.isArray(job.description)
+                                ? job.description.map(line => line.startsWith("-") ? line : `- ${line}`).join("\n")
+                                : job.description}
+                            language="markdown"
+                        />
+                        {job.skills && (
+                            <div className="flex flex-wrap gap-2 mt-2">
+                                {job.skills.map((skill, i) => (
+                                    <span key={i} className="text-xs font-mono bg-blue-900/30 text-blue-300 px-2 py-0.5 rounded border border-blue-800/50">
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
                     </li>
                 ))}
             </ol>

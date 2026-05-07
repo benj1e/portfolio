@@ -1,0 +1,13 @@
+[
+  {
+    "institution": "Acadia University",
+    "degree": "Bachelor of Science in Computer Science",
+    "location": "Wolfville, NS",
+    "startDate": "September 2024",
+    "endDate": "Present",
+    "gpa": "4.21/4.33",
+    "description": [
+      "Faculty-supervised research on skeletal-based Human Activity Recognition (HAR) using Graph Convolutional Networks (ST-GCN/CTR-GCN) with lab sensor equipment access."
+    ]
+  }
+]
