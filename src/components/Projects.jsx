@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Section from "./widgets/Section";
 import DinoSVG from "./widgets/DinoSVG";
+import CodeBlock from "./widgets/CodeBlock";
 import { Github, Globe } from "lucide-react";
 
 const NoProject = () => {
@@ -27,9 +28,7 @@ const ProjectImage = ({ project }) => {
     if (imageError || !project.image) {
         return (
             <div className="rounded-sm h-40 sm:h-48 w-full border border-white/20 flex items-center justify-center">
-                {/* Replace this div with your dinosaur SVG */}
                 <div className="w-12 h-auto opacity-60">
-                    {/* Your dinosaur SVG goes here */}
                     <DinoSVG />
                 </div>
             </div>
@@ -43,6 +42,72 @@ const ProjectImage = ({ project }) => {
             className="rounded-sm object-cover h-40 sm:h-48 w-full border border-gray-700"
             onError={handleImageError}
         />
+    );
+};
+
+const ProjectCard = ({ project }) => {
+    return (
+        <div className="w-full sm:w-[calc(50%-0.5rem)] md:flex-1 lg:w-2/5 flex-none bg-white/10 border border-white/15 rounded-xl shadow-lg p-3 sm:p-4 flex flex-col gap-3 sm:gap-4 min-w-0">
+            <ProjectImage project={project} />
+
+            <div className="min-w-0">
+                <h3 className="text-lg sm:text-xl font-main text-white truncate">
+                    {project.title}
+                </h3>
+                <p className="mt-1 text-gray-400 font-links-light text-sm leading-relaxed">
+                    {project.description}
+                </p>
+            </div>
+
+            {project.extensiveDescription && (
+                <div className="mt-1">
+                    <CodeBlock
+                        code={Array.isArray(project.extensiveDescription)
+                            ? project.extensiveDescription.map(line => line.startsWith("-") ? line : `- ${line}`).join("\n")
+                            : project.extensiveDescription}
+                        language="markdown"
+                    />
+                </div>
+            )}
+
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                {Array.isArray(project.tags) &&
+                    project.tags.map((tag, i) => (
+                        <span
+                            key={i}
+                            className="text-gray-400 text-xs font-links-light rounded-xl bg-white/10 backdrop-blur-md border border-white/10 shadow-inner
+                                px-2 py-1 flex items-center justify-center gap-2 flex-shrink-0"
+                        >
+                            {tag}
+                        </span>
+                    ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2 font-main">
+                {project.website && (
+                    <a
+                        href={project.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs flex items-center justify-center gap-2 sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
+                    >
+                        <Globe className="w-4" />
+                        Website
+                    </a>
+                )}
+                {project.source && (
+                    <a
+                        href={project.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs flex items-center justify-center gap-2 sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
+                    >
+                        <Github className="w-4" />
+                        Source
+                    </a>
+                )}
+            </div>
+        </div>
     );
 };
 
@@ -63,70 +128,8 @@ const Projects = () => {
                 {projects.length === 0 ? (
                     <NoProject />
                 ) : (
-                    projects.slice(0, 2).map((project, index) => (
-                        <div
-                            key={index}
-                            className="w-full sm:w-[calc(50%-0.5rem)] md:flex-1 lg:w-2/5 flex-none bg-white/10 border border-white/15 rounded-xl shadow-lg p-3 sm:p-4 flex flex-col gap-3 sm:gap-4 min-w-0"
-                        >
-                            <ProjectImage project={project} />
-
-                            <div className="min-w-0">
-                                <h3 className="text-lg sm:text-xl font-main text-white truncate">
-                                    {project.title}
-                                </h3>
-                                <p className="mt-1 text-gray-400 font-links-light text-sm leading-relaxed">
-                                    {project.description}
-                                </p>
-                            </div>
-
-                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                                {Array.isArray(project.tags) &&
-                                    project.tags.map((tag, i) => (
-                                        <span
-                                            key={i}
-                                            className="text-gray-400 text-xs font-links-light rounded-xl bg-white/10 backdrop-blur-md border border-white/10 shadow-inner
-                                                px-2 py-1 flex items-center justify-center gap-2 flex-shrink-0"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                            </div>
-
-                            <div className="flex flex-wrap gap-2 mt-auto font-main">
-                                {project.website && (
-                                    <a
-                                        href={project.website}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-xs flex items-center justify-center gap-2 sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
-                                    >
-                                        <Globe className="w-4" />
-                                        Website
-                                    </a>
-                                )}
-                                {project.source && (
-                                    <a
-                                        href={project.source}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-xs flex items-center justify-center gap-2 sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
-                                    >
-                                        <Github className="w-4" />
-                                        Source
-                                    </a>
-                                )}
-                                {project.ui && (
-                                    <a
-                                        href={project.ui}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-xs flex items-center justify-center gap-2 sm:text-sm px-2 sm:px-3 py-1 rounded-lg border border-gray-700 bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200 flex-shrink-0"
-                                    >
-                                        Source (UI)
-                                    </a>
-                                )}
-                            </div>
-                        </div>
+                    projects.map((project, index) => (
+                        <ProjectCard key={index} project={project} />
                     ))
                 )}
             </div>

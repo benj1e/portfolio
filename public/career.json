@@ -1,1 +1,41 @@
-[{"title":"Extern Remote AI-Powered Workflow Automation","company":"Outamation","location":"remote","startDate":"May 2025","endDate":"August 2025","description":["Built AI-powered workflows to automate document classification and data extraction, using Natural Language Processing (NLP), Computer Vision, and Python-based pipelines (PyMuPDF, OCR techniques).","Developed a retrieval system with LlamaIndex and Retrieval-Augmented Generation (RAG) to improve information search accuracy across mortgage documents, while evaluating open-source AI models for performance optimization.","Synthesized technical findings by compiling a comprehensive analysis report on top AI models for document processing, highlighting key challenges, optimization strategies, and real-world deployment recommendations."],"skills":["NLP","Computer Vision","Python","Java","JavaScript","TypeScript","SQL","Docker","Postman","Git","Firebase","Django","Flask","ReactJS","NextJS","PostgreSQL","Flutter","FastAPI","LlamaIndex","Retrieval-Augmented Generation (RAG)","OCR techniques","PyMuPDF","document classification","data extraction","model evaluation"],"latest":true}]
+[
+    {
+        "company": "Imhotep Legacy Academy",
+        "title": "First LEGO League Program Mentor",
+        "startDate": "September 2024",
+        "endDate": "Present",
+        "latest": true,
+        "description": [
+            "Mentored a team of 6 first-time participants through robot design and coding challenges.",
+            "Coordinated 12+ weekly sessions on algorithmic problem-solving and sensor integration."
+        ],
+        "skills": ["Python", "OpenCV", "FastAPI", "PostgreSQL"],
+        "logo": "https://media.licdn.com/dms/image/v2/D560BAQHDWbE7308W3w/company-logo_100_100/company-logo_100_100/0/1726058097960/imhotep_legacy_academy_logo?e=1748438400&v=beta&t=77M_iU_q9vI67Sj6f0v8GgX8s7rL_z6vI67Sj6f0v8G"
+    },
+    {
+        "company": "Outamation",
+        "title": "AI-Powered Workflow Automation Extern",
+        "startDate": "May 2025",
+        "endDate": "August 2025",
+        "latest": false,
+        "description": [
+            "Built AI-powered document parsers using Python and Tesseract OCR, processing 500+ documents daily.",
+            "Developed a retrieval-augmented generation (RAG) system with Pinecone for instant document search."
+        ],
+        "skills": ["Python", "Tesseract OCR", "Pinecone", "RAG"],
+        "logo": "https://media.licdn.com/dms/image/v2/D560BAQF_6I1_6_6_6/company-logo_100_100/company-logo_100_100/0/1715876356472/outamation_logo?e=1748438400&v=beta&t=99M_iU_q9vI67Sj6f0v8GgX8s7rL_z6vI67Sj6f0v8G"
+    },
+    {
+        "company": "Dalhousie University",
+        "title": "IT Lab Assistant / Student Assistant",
+        "startDate": "September 2024",
+        "endDate": "Present",
+        "latest": false,
+        "description": [
+            "Provided tier-1 technical support for 500+ students across campus lab facilities.",
+            "Optimized lab system configurations, reducing student login latency by ~15%."
+        ],
+        "skills": ["Technical Support", "System Configuration", "Troubleshooting"],
+        "logo": "https://media.licdn.com/dms/image/v2/D560BAQE_6I1_6_6_6/company-logo_100_100/company-logo_100_100/0/1715876356472/dalhousie_university_logo?e=1748438400&v=beta&t=99M_iU_q9vI67Sj6f0v8GgX8s7rL_z6vI67Sj6f0v8G"
+    }
+]

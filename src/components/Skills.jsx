@@ -9,7 +9,11 @@ const Skills = () => {
         "fastapi",
         "javascript",
         "react",
+        "nextjs",
+        "typescript",
+        "java",
         "sql",
+        "r",
         "html",
         "css",
         "tailwindcss",
@@ -17,13 +21,26 @@ const Skills = () => {
         "dart",
         "flutter",
         "docker",
+        "supabase",
+        "pytorch",
+        "opencv",
+        "numpy",
+        "pandas",
     ].map((tool) => ({
         title:
-            tool.charAt(0) +
-            tool
-                .slice(1)
-                .replace(/([A-Z])/g, " $1")
-                .trim(),
+            tool === "nextjs"
+                ? "Next.js"
+                : tool === "pytorch"
+                ? "PyTorch"
+                : tool === "opencv"
+                ? "OpenCV"
+                : tool === "r"
+                ? "R"
+                : tool.charAt(0).toUpperCase() +
+                  tool
+                      .slice(1)
+                      .replace(/([A-Z])/g, " $1")
+                      .trim(),
         logo: `./logos/${tool}.svg`,
     }));
 
@@ -39,6 +56,10 @@ const Skills = () => {
                         <img
                             src={skill.logo}
                             className="w-4 h-4 flex-shrink-0"
+                            alt=""
+                            onError={(e) => {
+                                e.target.style.display = 'none';
+                            }}
                         />
                         <span className="text-sm sm:text-base whitespace-nowrap">
                             {skill.title}
