@@ -1,0 +1,49 @@
+[
+  {
+    "slug": "har-skeleton",
+    "title": "Skeleton-based Activity Recognition",
+    "summary": "Faculty-supervised research on recognizing human activity from Kinect skeleton keypoints, evaluated on NTU RGB+D (60 actions).",
+    "featured": true,
+    "stack": [
+      "Python",
+      "TensorFlow/Keras",
+      "NumPy",
+      "CNN",
+      "BiGRU",
+      "Attention"
+    ],
+    "metrics": [
+      "74.0% cross-subject accuracy",
+      "83.8% cross-view accuracy"
+    ],
+    "links": {},
+    "caseStudy": {
+      "problem": "Raw Kinect skeletons are noisy. Solo actions often contain a spurious second body, and some frames have sensor artifacts.",
+      "decision": "Built a denoise, normalize and resample pipeline first, then grew the model one step at a time (position, velocity, two actors, bone vectors, then a CNN with a bidirectional GRU and frame attention), comparing every step against the same baseline.",
+      "broke": "Some shoulder-to-spine distances were zero, which blew up the normalization. A floor on the scale fixed it, and I reprocessed the whole dataset.",
+      "result": "74.0% cross-subject and 83.8% cross-view accuracy on NTU RGB+D."
+    }
+  },
+  {
+    "slug": "diabetes-risk-predictor",
+    "title": "Diabetes Risk Predictor",
+    "summary": "A diabetes risk model trained on CDC BRFSS 2024 survey data, shipped as a live web app with a FastAPI backend and React frontend.",
+    "featured": true,
+    "stack": [
+      "Python",
+      "XGBoost",
+      "FastAPI",
+      "React"
+    ],
+    "metrics": [],
+    "links": {
+      "demo": "https://diabetesrisk-predictor-seven.vercel.app/",
+      "repo": "https://github.com/benj1e/diabetes-risk-predictor"
+    },
+    "caseStudy": {
+      "problem": "Diabetes cases are the minority class, so a plain classifier looks accurate while missing the people it should flag.",
+      "decision": "Weighted the positive class, tuned with randomized search, and set the decision threshold to 0.40 to favor recall over precision.",
+      "result": "Took it past the notebook into a deployed app anyone can try."
+    }
+  }
+]

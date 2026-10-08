@@ -1,0 +1,6 @@
+{
+  "rbc": { "label": "RBC Amplify application" },
+  "iwk": { "label": "IWK Health application" },
+  "linkedin": { "label": "LinkedIn profile link" },
+  "resume": { "label": "Resume link" }
+}
