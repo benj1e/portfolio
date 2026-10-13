@@ -37,7 +37,7 @@
     ],
     "metrics": [],
     "links": {
-      "demo": "https://diabetesrisk-predictor-seven.vercel.app/",
+      "demo": "https://diabetes-risk-predictor-seven.vercel.app/",
       "repo": "https://github.com/benj1e/diabetes-risk-predictor"
     },
     "caseStudy": {
