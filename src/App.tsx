@@ -6,7 +6,7 @@ import Lab from "./pages/Lab";
 import Admin from "./pages/Admin";
 import TrackedRedirect from "./pages/TrackedRedirect";
 import { trackPage } from "./lib/analytics";
-import { Analytics } from "@vercel/analytics/nuxt/runtime";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
     const { pathname } = useLocation();
@@ -15,7 +15,7 @@ export default function App() {
     }, [pathname]);
 
     return (
-        <Analytics>
+        <>
             <Routes>
                 <Route path="r/:slug" element={<TrackedRedirect />} />
                 <Route element={<Layout />}>
@@ -25,6 +25,7 @@ export default function App() {
                     <Route path="*" element={<Home />} />
                 </Route>
             </Routes>
-        </Analytics>
+            <Analytics />
+        </>
     );
 }
